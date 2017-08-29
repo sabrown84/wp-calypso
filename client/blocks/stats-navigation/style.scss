@@ -1,0 +1,46 @@
+.stats-navigation {
+	.section-nav__panel {
+		padding-right: 16px;
+
+		@include breakpoint( "<480px" ) {
+			padding-right: 0;
+		}
+	}
+	.segmented-control {
+		margin-left: 16px;
+
+		@include breakpoint( "<480px" ) {
+			margin-left: 0;
+		}
+	}
+	.followers-count .button {
+		margin-left: 16px;
+
+		@include breakpoint( "<480px" ) {
+			display: none;
+		}
+	}
+}
+
+.stats-navigation__intevals-mobile.segmented-control {
+	max-width: 400px;
+	margin: 16px auto;
+	display: none;
+
+	@include breakpoint( "<960px" ) {
+		display: flex;
+	}
+
+	@include breakpoint( "<480px" ) {
+		max-width: 100%;
+		margin: 0 0 9px 0;
+	}
+}
+
+.stats-navigation__intevals-fullscreen.segmented-control {
+	display: flex;
+
+	@include breakpoint( "<960px" ) {
+		display: none;
+	}
+}
