@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/*
+	Instead of rendering two distinct React element trees to the `#primary` and `#secondary` <div>s,
+	use a single `Layout` component tree that includes both, and render it to `#layout`.
+
+	How to use:
+	./bin/codemods/single-tree-rendering path-to-transform/
+*/
+
+/**
+ * External dependencies
+ */
+const path = require( 'path' );
+const child_process = require( 'child_process' );
+
+/**
+ * Internal dependencies
+ */
+const config = require( './src/config' );
+const helpers = require( './src/helpers' );
+
+const args = process.argv.slice( 2 );
+if ( args.length === 0 ) {
+	process.stdout.write( 'No files to transform\n' );
+	process.exit( 0 );
+}
+
+const binArgs = [
+	// jscodeshift options
+	'--transform=bin/codemods/src/single-tree-rendering.js',
+	...config.jscodeshiftArgs,
+
+	// Transform target
+	...args,
+];
+const binPath = path.join( '.', 'node_modules', '.bin', 'jscodeshift' );
+const jscodeshift = child_process.spawn( binPath, binArgs );
+helpers.bindEvents( jscodeshift );
