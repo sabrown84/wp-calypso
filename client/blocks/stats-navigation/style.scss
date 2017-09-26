@@ -22,22 +22,27 @@
 	}
 }
 
-.stats-navigation__intevals-mobile.segmented-control {
-	max-width: 400px;
-	margin: 16px auto;
+.stats-navigation__intervals.segmented-control {
+	&.is-standalone {
+		max-width: 400px;
+		margin: 16px auto;
+
+		@include breakpoint( "<480px" ) {
+			max-width: 100%;
+			margin: 0 0 9px 0;
+		}
+	}
+}
+
+.stats-navigation__intervals-standalone.segmented-control {
 	display: none;
 
 	@include breakpoint( "<960px" ) {
 		display: flex;
 	}
-
-	@include breakpoint( "<480px" ) {
-		max-width: 100%;
-		margin: 0 0 9px 0;
-	}
 }
 
-.stats-navigation__intevals-fullscreen.segmented-control {
+.stats-navigation__intervals-navbar.segmented-control {
 	display: flex;
 
 	@include breakpoint( "<960px" ) {

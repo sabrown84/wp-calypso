@@ -88,6 +88,7 @@ class StoreStatsListView extends Component {
 				<Intervals
 					selected={ unit }
 					pathTemplate={ `/store/stats/${ type }/{{ interval }}/${ slug }` }
+					standalone
 				/>
 				<Module
 					siteId={ siteId }

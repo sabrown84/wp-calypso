@@ -57,7 +57,7 @@ const StatsNavigation = props => {
 				</NavTabs>
 				{ showIntervals && (
 					<Intervals
-						className="stats-navigation__intevals-fullscreen"
+						className="stats-navigation__intervals-navbar"
 						selected={ interval }
 						pathTemplate={ pathTemplate }
 					/>
@@ -66,9 +66,10 @@ const StatsNavigation = props => {
 			</SectionNav>
 			{ showIntervals && (
 				<Intervals
-					className="stats-navigation__intevals-mobile"
+					className="stats-navigation__intervals-standalone"
 					selected={ interval }
 					pathTemplate={ pathTemplate }
+					standalone
 				/>
 			) }
 		</div>
