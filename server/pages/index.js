@@ -20,6 +20,7 @@ import { serverRender } from 'render';
 import stateCache from 'state-cache';
 import { createReduxStore, reducer } from 'state';
 import { DESERIALIZE } from 'state/action-types';
+import { setLocale } from 'state/ui/language/actions';
 import { login } from 'lib/paths';
 import { logSectionResponseTime } from './analytics';
 
@@ -288,6 +289,7 @@ function setUpLoggedInRoute( req, res, next ) {
 
 			if ( data.localeSlug ) {
 				context.lang = data.localeSlug;
+				context.store.dispatch( setLocale( data.localeSlug ) );
 			}
 
 			if ( req.path === '/' && req.query ) {
@@ -311,6 +313,7 @@ function setUpLoggedInRoute( req, res, next ) {
 			}
 
 			req.context = context;
+
 			next();
 		} );
 	} else {
